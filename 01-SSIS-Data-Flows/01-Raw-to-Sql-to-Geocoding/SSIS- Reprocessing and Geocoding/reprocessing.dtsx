@@ -11,12 +11,27 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{4D528DC7-B66B-4498-9CF9-91F127EFB951}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{D42CE23E-B577-453F-B21D-ED1CC4860AE2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ADM3 Inputs VS Geocoding"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0e98c54e-60b0-42eb-91f3-8d7b5b34bdaf}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ADM3 Inputs VS Geocoding"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
@@ -32,6 +47,53 @@
           version="1" />
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Entitites Addresses"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{e6ddb169-2650-403f-976f-48c697dc5b7d}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Entitites Addresses"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\NearRest Neighbour analysis"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6f73575c-b5f0-4d26-bd5c-23f7da720071}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="NearRest Neighbour analysis"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Run Python Geocoding Script"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Get Unique Entities Reprocessed for Geocoding"
+      DTS:DTSID="{1cda8edb-2e0d-40c5-987a-86bbc3e7ac6f}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Run Python Geocoding Script"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\ProgramData\Python\python.exe"
+          Arguments="Geocoding_python_API_Google.py"
+          WorkingDirectory="C:\Users\renau\OneDrive\02.Data Projects\02-ETL-Extract-Transform-Load\01-SSIS-Data-Flows\01-Raw-to-Sql-to-Geocoding\Python" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -44,11 +106,42 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:s="clr-namespace:System;assembly=mscorlib">
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Data Flow Task"
-          TopLeft="239.166657163038,57.2000004545848" />
+          TopLeft="356.666652494008,21.6666668388579" />
+        <NodeLayout
+          Size="187.2,41.6"
+          Id="Package\Get Entitites Addresses"
+          TopLeft="349.999986092251,136.599999483426" />
+        <NodeLayout
+          Size="215.2,41.6"
+          Id="Package\Run Python Geocoding Script"
+          TopLeft="10.4999998013178,19.2166697058416" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\ADM3 Inputs VS Geocoding"
+          TopLeft="19.0222123322671,87.3629643343704" />
+        <NodeLayout
+          Size="158.4,60.8"
+          Id="Package\NearRest Neighbour analysis"
+          TopLeft="186.451456885611,87.2333342562782" />
+        <GroupLayout
+          Text="Group "
+          ParentId="Package"
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="372.8,219.2"
+          Size="372.8,262.4"
+          Id="fde24355-a4c5-4583-a509-bde1fe2b6b11"
+          TopLeft="269.166655970945,277.19999979337">
+          <GroupLayout.ChildrenIds>
+            <s:String>Package\Run Python Geocoding Script</s:String>
+            <s:String>Package\ADM3 Inputs VS Geocoding</s:String>
+            <s:String>Package\NearRest Neighbour analysis</s:String>
+          </GroupLayout.ChildrenIds>
+        </GroupLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
